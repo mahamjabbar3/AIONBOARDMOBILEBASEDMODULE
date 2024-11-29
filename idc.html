@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onboarding Dashboard</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fc;
+    }
+    .dashboard {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background-color: #007bff;
+      padding: 20px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .user-section input {
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .user-photo {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin-left: 15px;
+    }
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+    }
+    .tabs button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .tabs button:hover {
+      background-color: #007bff;
+      color: white;
+    }
+    .tabs button.active {
+      background-color: #007bff;
+      color: white;
+    }
+    main {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .content-section {
+      margin: 20px 0;
+    }
+    .onboarding-tasks ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .onboarding-tasks li {
+      margin-bottom: 10px;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 20px;
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .progress {
+      height: 100%;
+      background-color: #28a745;
+    }
+    .training-modules {
+      display: flex;
+      justify-content: space-between;
+    }
+    .module {
+      width: 45%;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .module img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    footer {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      background-color: #fff;
+      border-top: 1px solid #ccc;
+    }
+    footer button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    footer button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Header -->
+    <header class="header">
+      <h1>Onboarding Dashboard</h1>
+      <div class="user-section">
+        <input type="text" class="search-bar" placeholder="Search for tasks or resources..." />
+        <img src="https://via.placeholder.com/40" alt="User Photo" class="user-photo">
+      </div>
+    </header>
+
+    <!-- Tabs (Buttons to navigate to Profile, Settings, and Logout pages) -->
+    <nav class="tabs">
+      <!-- Add URL for Profile View -->
+      <button class="active" onclick="window.location.href='profile.html'">Profile</button>  <!-- Add URL for Profile View -->
+      
+      <!-- Add URL for Settings -->
+      <button onclick="window.location.href='settings.html'">Settings</button>  <!-- Add URL for Settings -->
+
+      <!-- Add URL for Logout -->
+      <button onclick="window.location.href='logout.html'">Logout</button>  <!-- Add URL for Logout -->
+    </nav>
+
+    <!-- Main Content (this part will not be shown as you'll be redirected to other pages) -->
+    <main>
+      <!-- Profile Section (This will not be used when redirected to profile.html) -->
+      <div id="profile-content" class="content-section">
+        <h2>Profile Content</h2>
+        <p>This is the profile content.</p>
+      </div>
+
+      <!-- Settings Section (This will not be used when redirected to settings.html) -->
+      <div id="settings-content" class="content-section" style="display: none;">
+        <h2>Settings Content</h2>
+        <p>This is the settings content.</p>
+      </div>
+
+      <!-- Logout Section (This will not be used when redirected to logout.html) -->
+      <div id="logout-content" class="content-section" style="display: none;">
+        <h2>Logout Content</h2>
+        <p>This is the logout content.</p>
+      </div>
+
+      <!-- Onboarding Tasks -->
+      <section class="onboarding-tasks">
+        <h2>Onboarding Tasks</h2>
+        <ul>
+          <li><input type="checkbox"> Complete HR Forms - Due: 01/15</li>
+          <li><input type="checkbox"> Attend Orientation Meeting - Due: 01/16</li>
+          <li><input type="checkbox"> Review Company Policies - Due: 01/17</li>
+          <li><input type="checkbox"> Set Up Workstation - Due: 01/18</li>
+        </ul>
+      </section>
+
+      <!-- Onboarding Progress -->
+      <section class="progress-section">
+        <h2>Onboarding Progress</h2>
+        <div class="progress-bar">
+          <div class="progress" style="width: 50%;"></div>
+        </div>
+      </section>
+
+      <!-- Training Modules -->
+      <section class="training-modules">
+        <h2>Training Modules</h2>
+        <div class="modules">
+          <div class="module">
+            <img src="https://via.placeholder.com/150" alt="Collaboration Module">
+            <h3>Collaboration</h3>
+            <p>Learn effective collaboration techniques.</p>
+            <p>Estimated time: 2 hours</p>
+            <button onclick="alert('Collaboration Module Started')">Start</button>
+          </div>
+          <div class="module">
+            <img src="https://via.placeholder.com/150" alt="Leadership Module">
+            <h3>Leadership</h3>
+            <p>Develop leadership skills and strategies.</p>
+            <p>Estimated time: 3 hours</p>
+            <button onclick="alert('Leadership Module Continued')">Continue</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Navigation (This is just for home, tasks, training, etc., buttons) -->
+    <footer class="footer-nav">
+      <button onclick="alert('Home Clicked!')">Home</button>
+      <button class="active" onclick="alert('Tasks Clicked!')">Tasks</button>
+      <button onclick="alert('Training Clicked!')">Training</button>
+      <button onclick="alert('Resources Clicked!')">Resources</button>
+      <button onclick="alert('Profile Clicked!')">Profile</button>
+    </footer>
+  </div>
+</body>
+</html>

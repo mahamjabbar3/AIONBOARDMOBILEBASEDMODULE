@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    .profile-container {
+      max-width: 400px;
+      width: 100%;
+      margin: auto;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      padding: 15px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 15px;
+    }
+
+    .user-photo {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+    }
+
+    .user-details {
+      margin-left: 15px;
+    }
+
+    .user-details h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .user-details p {
+      font-size: 14px;
+      color: #777;
+      margin: 5px 0;
+    }
+
+    .home-button {
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .home-button:hover {
+      background-color: #0056b3;
+    }
+
+    .tabs {
+      display: flex;
+      margin-top: 20px;
+      border-bottom: 1px solid #ddd;
+      background-color: #f4f4f4;
+      flex-wrap: wrap;
+    }
+
+    .tabs button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .tabs button.active {
+      color: #007bff;
+      border-bottom: 3px solid #007bff;
+    }
+
+    .profile-content {
+      padding-top: 20px;
+    }
+
+    .bio, .posts, .settings {
+      display: none;
+    }
+
+    .bio.active, .posts.active, .settings.active {
+      display: block;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .profile-container {
+        padding: 10px;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 10px;
+      }
+
+      .user-photo {
+        width: 60px;
+        height: 60px;
+      }
+
+      .tabs {
+        flex-direction: column;
+      }
+
+      .tabs button {
+        width: 100%;
+        padding: 12px;
+      }
+
+      .user-details h1 {
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .user-details h1 {
+        font-size: 18px;
+      }
+
+      .tabs button {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      .user-details p {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-container">
+    <div class="header">
+      <img src="https://via.placeholder.com/80" alt="User Photo" class="user-photo">
+      <div class="user-details">
+        <h1>John Doe</h1>
+        <p>Software Developer</p>
+        <p>New York, USA</p>
+      </div>
+      <button class="home-button" onclick="window.location.href='file:///F:/ass%201/indexxx.html'">Home</button> <!-- Redirect to home page -->
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="active" onclick="showTab('bio')">Bio</button>
+      <button onclick="showTab('posts')">Posts</button>
+      <button onclick="showTab('settings')">Settings</button>
+    </div>
+
+    <!-- Profile Content -->
+    <div class="profile-content">
+      <div class="bio active">
+        <h3>About Me</h3>
+        <p>I'm a passionate software developer with experience in web and mobile applications. I enjoy solving complex problems and building scalable systems.</p>
+      </div>
+
+      <div class="posts">
+        <h3>Recent Posts</h3>
+        <ul>
+          <li>Post 1: How to build a responsive layout with CSS</li>
+          <li>Post 2: Tips for optimizing JavaScript performance</li>
+          <li>Post 3: Understanding React Hooks</li>
+        </ul>
+      </div>
+
+      <div class="settings">
+        <h3>Account Settings</h3>
+        <p>Change your password or update your profile information.</p>
+        <!-- Settings form can go here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showTab(tabName) {
+      const tabs = ['bio', 'posts', 'settings'];
+      tabs.forEach(tab => {
+        document.querySelector(`.${tab}`).classList.remove('active');
+      });
+      document.querySelector(`.${tabName}`).classList.add('active');
+      const buttons = document.querySelectorAll('.tabs button');
+      buttons.forEach(button => {
+        button.classList.remove('active');
+      });
+      event.target.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

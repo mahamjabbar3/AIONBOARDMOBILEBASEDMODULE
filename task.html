@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="dashboard">
+    <header class="header">
+      <h1>Tasks</h1>
+      <input type="text" class="search-bar" placeholder="Search tasks...">
+    </header>
+
+    <main>
+      <h2>Your Tasks</h2>
+      <ul id="task-list">
+        <li>
+          <input type="checkbox" id="task1" onchange="toggleTaskStatus('task1')">
+          <label for="task1">Complete onboarding forms</label>
+        </li>
+        <li>
+          <input type="checkbox" id="task2" onchange="toggleTaskStatus('task2')">
+          <label for="task2">Attend team orientation</label>
+        </li>
+        <li>
+          <input type="checkbox" id="task3" onchange="toggleTaskStatus('task3')">
+          <label for="task3">Set up workstation</label>
+        </li>
+      </ul>
+
+      <h3>Add a New Task</h3>
+      <input type="text" id="new-task" placeholder="Enter new task">
+      <button onclick="addTask()">Add Task</button>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+  </div>
+
+  <script>
+    // Load footer
+    fetch("footer.html")
+      .then((res) => res.text())
+      .then((data) => (document.getElementById("footer-container").innerHTML = data));
+
+    // Task functionalities
+    function toggleTaskStatus(taskId) {
+      const task = document.getElementById(taskId);
+      task.parentElement.style.textDecoration = task.checked ? 'line-through' : 'none';
+    }
+
+    function addTask() {
+      const taskInput = document.getElementById("new-task");
+      const taskList = document.getElementById("task-list");
+      if (taskInput.value.trim()) {
+        const newTask = document.createElement("li");
+        const taskId = `task${taskList.children.length + 1}`;
+        newTask.innerHTML = `
+          <input type="checkbox" id="${taskId}" onchange="toggleTaskStatus('${taskId}')">
+          <label for="${taskId}">${taskInput.value}</label>
+        `;
+        taskList.appendChild(newTask);
+        taskInput.value = "";
+      }
+    }
+  </script>
+</body>
+</html>

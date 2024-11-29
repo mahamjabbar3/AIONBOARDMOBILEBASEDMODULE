@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onboarding Dashboard</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    .dashboard {
+      max-width: 400px;
+      margin: auto;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* Header */
+    .header {
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-bar {
+      width: 70%;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+
+    .user-photo {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+      background-color: #f4f4f4;
+      flex-wrap: wrap;
+    }
+
+    .tabs button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .tabs button.active {
+      color: #007bff;
+      border-bottom: 3px solid #007bff;
+    }
+
+    /* Main Content */
+    main {
+      padding: 15px;
+    }
+
+    .onboarding-tasks ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .onboarding-tasks li {
+      margin-bottom: 10px;
+    }
+
+    /* Progress Bar */
+    .progress-section {
+      margin-top: 20px;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background-color: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      background-color: #007bff;
+    }
+
+    /* Training Modules */
+    .training-modules .modules {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .module {
+      flex: 1;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      text-align: center;
+      padding: 10px;
+      background-color: #f9f9f9;
+      min-width: 120px;
+    }
+
+    .module img {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    .module button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Footer Navigation */
+    .footer-nav {
+      display: flex;
+      border-top: 1px solid #ddd;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    .footer-nav button.active {
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .dashboard {
+        max-width: 100%;
+        padding: 10px;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .search-bar {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      .tabs {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .tabs button {
+        width: 100%;
+        padding: 12px;
+      }
+
+      .module {
+        min-width: 150px;
+        margin-bottom: 10px;
+      }
+
+      .training-modules .modules {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .footer-nav {
+        flex-direction: column;
+      }
+
+      .footer-nav button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header h1 {
+        font-size: 18px;
+      }
+
+      .tabs button {
+        font-size: 14px;
+      }
+
+      .footer-nav button {
+        font-size: 14px;
+      }
+
+      .search-bar {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Header -->
+    <header class="header">
+      <h1>Onboarding Dashboard</h1>
+      <div class="user-section">
+        <input type="text" class="search-bar" placeholder="Search for tasks or resources..." />
+        <img src="https://via.placeholder.com/40" alt="User Photo" class="user-photo">
+      </div>
+    </header>
+
+    <!-- Tabs -->
+    <nav class="tabs">
+      <button class="active" onclick="showContent('profile')">Profile</button>
+      <button onclick="showContent('settings')">Settings</button>
+      <button onclick="showContent('logout')">Logout</button>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <div id="profile-content" class="content-section">
+        <h2>Profile Content</h2>
+        <p>This is the profile content.</p>
+      </div>
+      <div id="settings-content" class="content-section" style="display: none;">
+        <h2>Settings Content</h2>
+        <p>This is the settings content.</p>
+      </div>
+      <div id="logout-content" class="content-section" style="display: none;">
+        <h2>Logout Content</h2>
+        <p>This is the logout content.</p>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-nav">
+      <button>Home</button>
+      <button class="active">Tasks</button>
+      <button>Training</button>
+      <button>Resources</button>
+      <button>Profile</button>
+    </footer>
+  </div>
+</body>
+</html>

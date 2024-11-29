@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    .dashboard {
+      max-width: 400px;
+      margin: auto;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    /* Header */
+    .header {
+      padding: 15px 0;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-bar {
+      width: 70%;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+
+    .user-photo {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+      background-color: #f4f4f4;
+      flex-wrap: wrap;
+    }
+
+    .tabs button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .tabs button.active {
+      color: #007bff;
+      border-bottom: 3px solid #007bff;
+    }
+
+    /* Main Content */
+    main {
+      padding: 15px;
+    }
+
+    .onboarding-tasks ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .onboarding-tasks li {
+      margin-bottom: 10px;
+    }
+
+    /* Settings Form */
+    .settings-form {
+      margin-top: 20px;
+    }
+
+    .settings-form div {
+      margin-bottom: 15px;
+    }
+
+    .settings-form label {
+      display: block;
+      font-weight: bold;
+    }
+
+    .settings-form input[type="text"],
+    .settings-form input[type="email"],
+    .settings-form input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .settings-form button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .settings-form button:hover {
+      background-color: #0056b3;
+    }
+
+    .feedback-message {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #e0f7fa;
+      border: 1px solid #b2ebf2;
+      border-radius: 5px;
+      color: #00796b;
+      display: none;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 600px) {
+      .dashboard {
+        padding: 15px;
+        width: 100%;
+      }
+
+      .tabs {
+        flex-direction: column;
+      }
+
+      .tabs button {
+        width: 100%;
+        padding: 12px;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .search-bar {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .settings-form input,
+      .settings-form button {
+        width: 100%;
+      }
+
+      .settings-form button {
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Header -->
+    <header class="header">
+      <h1>Settings</h1>
+      <div class="user-section">
+        <input type="text" class="search-bar" placeholder="Search for tasks or resources..." />
+        <img src="p.jpg" alt="User Photo" class="user-photo">
+      </div>
+    </header>
+
+    <!-- Tabs -->
+    <nav class="tabs">
+      <button onclick="window.location.href='file:///F:/ass%201/profile.html'">Profile</button>
+      <button class="active" onclick="window.location.href='file:///F:/ass%201/setting.html'">Settings</button>
+      <button onclick="window.location.href='file:///F:/ass%201/logout.html'">Logout</button>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Settings Content -->
+      <section id="settings-content">
+        <h2>Update Settings</h2>
+        <form class="settings-form" id="settingsForm">
+          <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="JohnDoe" required>
+          </div>
+          <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="johndoe@example.com" required>
+          </div>
+          <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <div>
+            <button type="submit">Save Changes</button>
+          </div>
+        </form>
+
+        <!-- Feedback Message -->
+        <div id="feedback" class="feedback-message"></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Handle form submission
+    document.getElementById('settingsForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Get form values
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Perform validation (optional)
+      if (!username || !email || !password) {
+        showFeedback('Please fill out all fields.', 'error');
+        return;
+      }
+
+      // Simulate a successful save
+      showFeedback('Settings updated successfully!', 'success');
+    });
+
+    // Function to show feedback message
+    function showFeedback(message, type) {
+      const feedbackElement = document.getElementById('feedback');
+      feedbackElement.textContent = message;
+      
+      // Set styles based on type
+      if (type === 'success') {
+        feedbackElement.style.backgroundColor = '#e0f7fa';
+        feedbackElement.style.borderColor = '#b2ebf2';
+        feedbackElement.style.color = '#00796b';
+      } else if (type === 'error') {
+        feedbackElement.style.backgroundColor = '#ffccbc';
+        feedbackElement.style.borderColor = '#ffab91';
+        feedbackElement.style.color = '#d32f2f';
+      }
+
+      feedbackElement.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

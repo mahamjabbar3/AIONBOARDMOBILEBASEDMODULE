@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logout Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    .dashboard {
+      max-width: 400px;
+      margin: auto;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* Header */
+    .header {
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .header h1 {
+      margin: 0;
+    }
+
+    /* Main Content */
+    main {
+      padding: 15px;
+      text-align: center;
+    }
+
+    main h2 {
+      font-size: 24px;
+      color: #007bff;
+    }
+
+    main p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    main a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    .footer-nav {
+      display: flex;
+      border-top: 1px solid #ddd;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .footer-nav button.active {
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .dashboard {
+        max-width: 100%;
+        padding: 10px;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-nav {
+        flex-direction: column;
+      }
+
+      .footer-nav button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header h1 {
+        font-size: 18px;
+      }
+
+      main h2 {
+        font-size: 20px;
+      }
+
+      .footer-nav button {
+        font-size: 14px;
+      }
+
+      main p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <header class="header">
+      <h1>Logout Page</h1>
+    </header>
+    <main>
+      <h2>Goodbye!</h2>
+      <p>You've successfully logged out.</p>
+      <p><a href="login.html">Login again</a></p>
+    </main>
+    <div class="footer-nav">
+      <button><a href="file:///F:/ass%201/indexxx.html">Home</a></button>
+      <button><a href="file:///F:/ass%201/profile.html">Profile</a></button>
+      <button><a href="file:///F:/ass%201/setting.html">Settings</a></button>
+    </div>
+  </div>
+</body>
+</html>
